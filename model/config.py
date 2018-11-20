@@ -68,7 +68,7 @@ class Config():
     filename_glove = "data/glove.6B/glove.6B.{}d.txt".format(dim_word)
     # trimmed embeddings (created from glove_filename with build_data.py)
     filename_trimmed = "data/glove.6B.{}d.trimmed.npz".format(dim_word)
-    use_pretrained = True
+    use_pretrained = False
 
     # dataset
     # filename_dev = "data/coNLL/eng/eng.testa.iob"
@@ -87,7 +87,7 @@ class Config():
     # training
     train_embeddings = False
     nepochs          = 15
-    dropout          = 0.5
+    dropout          = 0.2
     batch_size       = 20
     lr_method        = "adam"
     lr               = 0.001
