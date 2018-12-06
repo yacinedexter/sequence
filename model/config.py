@@ -83,7 +83,7 @@ class Config():
     filename_words = "data/words.txt"
     filename_tags = "data/tags.txt"
     filename_chars = "data/chars.txt"
-    filename_results = "data/chars.txt"
+    filename_results = "data/results.txt"
 
     # training
     train_embeddings = True
