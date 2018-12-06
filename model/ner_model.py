@@ -6,7 +6,7 @@ import tensorflow as tf
 from .data_utils import minibatches, pad_sequences, get_chunks
 from .general_utils import Progbar
 from .base_model import BaseModel
-from model.config import Config
+
 
 
 class NERModel(BaseModel):
@@ -315,7 +315,7 @@ class NERModel(BaseModel):
         correct_preds, total_correct, total_preds = 0., 0., 0.
         
         print("Writing test Résults...")
-        with open(config.filename_results, "w") as f:
+        with open("data/chars.txt", "w") as f:
             for words, labels in minibatches(test, self.config.batch_size):
                 labels_pred, sequence_lengths = self.predict_batch(words)
 
