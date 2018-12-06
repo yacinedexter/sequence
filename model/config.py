@@ -85,8 +85,8 @@ class Config():
     filename_chars = "data/chars.txt"
 
     # training
-    train_embeddings = False
-    nepochs          = 15
+    train_embeddings = True
+    nepochs          = 30
     dropout          = 0.5
     batch_size       = 20
     lr_method        = "adam"
