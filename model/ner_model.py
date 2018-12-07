@@ -313,7 +313,7 @@ class NERModel(BaseModel):
         """
         accs = []
         correct_preds, total_correct, total_preds = 0., 0., 0.
-        
+        idx_to_tag = {idx: tag for tag, idx in self.config.vocab_tags.items()}
         print("Writing test Résults...")
         with open(self.config.filename_results, "w") as f:
             for words, labels in minibatches(test, self.config.batch_size):
