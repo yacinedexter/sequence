@@ -325,7 +325,7 @@ class NERModel(BaseModel):
                     lab_pred = lab_pred[:length]
                     accs    += [a==b for (a, b) in zip(lab, lab_pred)]
                     for (a, b) in zip(lab, lab_pred):
-                        f.write('(lable : '+str(a)+' -> labelPred : '+str(b)+'), ')
+                        f.write('(lable : '+idx_to_tag[a]+', labelPred : '+idx_to_tag[b]+'), ')
                     f.write('\n')
                     lab_chunks      = set(get_chunks(lab, self.config.vocab_tags))
                     lab_pred_chunks = set(get_chunks(lab_pred,
