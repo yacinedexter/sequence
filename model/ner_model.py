@@ -319,13 +319,13 @@ class NERModel(BaseModel):
             for words, labels in minibatches(test, self.config.batch_size):
                 labels_pred, sequence_lengths = self.predict_batch(words)
 
-                for lab, lab_pred, length, word in zip(labels, labels_pred,
-                                             sequence_lengths,words):
+                for lab, lab_pred, length in zip(labels, labels_pred,
+                                             sequence_lengths):
                     lab      = lab[:length]
                     lab_pred = lab_pred[:length]
                     accs    += [a==b for (a, b) in zip(lab, lab_pred)]
-                    for (a, b, c) in zip(word, lab, lab_pred):
-                        f.write('('+a+' lab : '+idx_to_tag[b]+', labPred : '+idx_to_tag[c]+'), ')
+                    for (b, c) in zip(lab, lab_pred):
+                        f.write('('lab : '+idx_to_tag[b]+', labPred : '+idx_to_tag[c]+'), ')
                     f.write('\n')
                     lab_chunks      = set(get_chunks(lab, self.config.vocab_tags))
                     lab_pred_chunks = set(get_chunks(lab_pred,
