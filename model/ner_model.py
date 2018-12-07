@@ -315,7 +315,7 @@ class NERModel(BaseModel):
         correct_preds, total_correct, total_preds = 0., 0., 0.
         
         print("Writing test Résults...")
-        with open("data/results.txt", "w") as f:
+        with open(self.config.filename_results, "w") as f:
             for words, labels in minibatches(test, self.config.batch_size):
                 labels_pred, sequence_lengths = self.predict_batch(words)
 
