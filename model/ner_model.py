@@ -295,11 +295,12 @@ class NERModel(BaseModel):
         
         
         #train evaluation
-        metrics = self.run_evaluate(dev)
+        metrics = self.run_evaluate(train)
         msg = "Train eval : "+" - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
         self.logger.info(msg)
         
+        #dev evaluation
         metrics = self.run_evaluate(dev)
         msg = "Dev eval : "+" - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
