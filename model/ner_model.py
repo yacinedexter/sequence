@@ -292,9 +292,16 @@ class NERModel(BaseModel):
             # tensorboard
             if i % 10 == 0:
                 self.file_writer.add_summary(summary, epoch*nbatches + i)
-
+        
+        
+        #train evaluation
         metrics = self.run_evaluate(dev)
-        msg = " - ".join(["{} {:04.2f}".format(k, v)
+        msg = "Train eval : "+" - ".join(["{} {:04.2f}".format(k, v)
+                for k, v in metrics.items()])
+        self.logger.info(msg)
+        
+        metrics = self.run_evaluate(dev)
+        msg = "Dev eval : "+" - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
         self.logger.info(msg)
 
