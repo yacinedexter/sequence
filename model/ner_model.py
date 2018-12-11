@@ -322,7 +322,7 @@ class NERModel(BaseModel):
         accs = []
         correct_preds, total_correct, total_preds = 0., 0., 0.
         idx_to_tag = {idx: tag for tag, idx in self.config.vocab_tags.items()}
-        print("Writing test Résults...")
+
         with open(self.config.filename_results, "w") as f:
             for words, labels in minibatches(test, self.config.batch_size):
                 labels_pred, sequence_lengths = self.predict_batch(words)
@@ -347,7 +347,6 @@ class NERModel(BaseModel):
         r   = correct_preds / total_correct if correct_preds > 0 else 0
         f1  = 2 * p * r / (p + r) if correct_preds > 0 else 0
         acc = np.mean(accs)
-        print("- done results have been saved.")
 
         return {"acc": 100*acc, "f1": 100*f1}
 
