@@ -80,7 +80,7 @@ def main():
                          config.processing_tag, config.max_iter)
 
     # evaluate and interact
-    model.evaluate(test,'test')
+    model.evaluate(test)
     #interactive_shell(model)
 
 
