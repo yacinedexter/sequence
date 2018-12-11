@@ -1,3 +1,4 @@
+import numpy as np
 import os
 import tensorflow as tf
 
@@ -151,6 +152,9 @@ class BaseModel(object):
         self.logger.info(msg)
         
         batch_size = self.config.batch_size
+        nbatches = (len(test) + batch_size - 1) // batch_size
+        prog = Progbar(target=nbatches)
+        
         for i, (words, labels) in enumerate(minibatches(test, batch_size)):
             fd, _ = self.get_feed_dict(words, labels, self.config.lr,
                     self.config.dropout)
