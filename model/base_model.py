@@ -1,6 +1,8 @@
 import os
 import tensorflow as tf
 
+from .data_utils import minibatches, pad_sequences, get_chunks
+from .general_utils import Progbar
 
 class BaseModel(object):
     """Generic class for general methods that are not specific to NER"""
