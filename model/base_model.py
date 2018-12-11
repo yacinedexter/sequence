@@ -159,7 +159,7 @@ class BaseModel(object):
             fd, _ = self.get_feed_dict(words, labels, self.config.lr,
                     self.config.dropout)
 
-            _, test_loss, summary = self.sess.run(
-                    [self.train_op, self.loss, self.merged], feed_dict=fd)
+            _, test_loss = self.sess.run(
+                    [self.train_op, self.loss], feed_dict=fd)
 
             prog.update(i + 1, [("Test loss", test_loss)])        
