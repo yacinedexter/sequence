@@ -295,13 +295,13 @@ class NERModel(BaseModel):
         
         
         #train evaluation
-        metrics = self.run_evaluate(train)
+        metrics = self.run_evaluate(train,'train')
         msg = "Train eval : "+" - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
         self.logger.info(msg)
         
         #dev evaluation
-        metrics = self.run_evaluate(dev)
+        metrics = self.run_evaluate(dev,'dev')
         msg = "Dev eval : "+" - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
         self.logger.info(msg)
@@ -309,7 +309,7 @@ class NERModel(BaseModel):
         return metrics["f1"]
 
 
-    def run_evaluate(self, test):
+    def run_evaluate(self, test, ftype):
         """Evaluates performance on test set
 
         Args:
@@ -332,9 +332,10 @@ class NERModel(BaseModel):
                     lab      = lab[:length]
                     lab_pred = lab_pred[:length]
                     accs    += [a==b for (a, b) in zip(lab, lab_pred)]
-                    for (b, c) in zip(lab, lab_pred):
-                        f.write(idx_to_tag[b]+','+idx_to_tag[c]+'\n')
-                    f.write('\n')
+                    if ftype == 'test':
+                        for (b, c) in zip(lab, lab_pred):
+                            f.write(idx_to_tag[b]+','+idx_to_tag[c]+'\n')
+                        f.write('\n')
                     lab_chunks      = set(get_chunks(lab, self.config.vocab_tags))
                     lab_pred_chunks = set(get_chunks(lab_pred,
                                                      self.config.vocab_tags))
