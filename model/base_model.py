@@ -150,6 +150,7 @@ class BaseModel(object):
                 for k, v in metrics.items()])
         self.logger.info(msg)
         
+        batch_size = self.config.batch_size
         for i, (words, labels) in enumerate(minibatches(test, batch_size)):
             fd, _ = self.get_feed_dict(words, labels, self.config.lr,
                     self.config.dropout)
