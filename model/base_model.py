@@ -125,7 +125,7 @@ class BaseModel(object):
             self.config.lr *= self.config.lr_decay # decay learning rate
 
             # early stopping and saving best parameters
-            if score >= best_score:
+            if score > best_score:
                 nepoch_no_imprv = 0
                 self.save_session()
                 best_score = score
