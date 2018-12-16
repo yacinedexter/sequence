@@ -92,7 +92,7 @@ class Config():
     batch_size       = 5
     lr_method        = "adam"
     lr               = 0.03
-    lr_decay         = 0.3
+    lr_decay         = 0.6
     clip             = -1 # if negative, no clipping
     nepoch_no_imprv  = 3
 
