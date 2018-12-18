@@ -88,10 +88,10 @@ class Config():
     # training
     train_embeddings = False
     nepochs          = 50
-    dropout          = 0.5
-    batch_size       = 8
+    dropout          = 0.4
+    batch_size       = 10
     lr_method        = "adam"
-    lr               = 0.001
+    lr               = 0.003
     lr_decay         = 0.9
     clip             = -1 # if negative, no clipping
     nepoch_no_imprv  = 3
