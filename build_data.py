@@ -30,9 +30,9 @@ def main():
 
     # Build Word and Tag vocab
     vocab_words, vocab_tags = get_vocabs([train, dev, test])
-    vocab_glove = get_glove_vocab(config.filename_glove)
+    #vocab_glove = get_glove_vocab(config.filename_glove)
 
-    vocab = vocab_words & vocab_glove
+    vocab = vocab_words #& vocab_glove
     vocab.add(UNK)
     vocab.add(NUM)
 
