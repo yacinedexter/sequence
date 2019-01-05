@@ -86,12 +86,12 @@ class Config():
     filename_results = "data/results.txt"
 
     # training
-    train_embeddings = False
+    train_embeddings = True
     nepochs          = 50
-    dropout          = 0.4
-    batch_size       = 16
+    dropout          = 0.5
+    batch_size       = 4
     lr_method        = "adam"
-    lr               = 0.003
+    lr               = 0.01
     lr_decay         = 0.9
     clip             = -1 # if negative, no clipping
     nepoch_no_imprv  = 3
