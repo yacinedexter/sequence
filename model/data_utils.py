@@ -141,7 +141,7 @@ def get_glove_vocab(filename):
     """
     print("Building vocab...")
     vocab = set()
-    with open(filename) as f:
+    with open(filename, encoding='latin-1') as f:
         for line in f:
             word = line.strip().split(' ')[0]
             vocab.add(word)
