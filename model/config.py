@@ -86,7 +86,7 @@ class Config():
     filename_results = "data/results.txt"
 
     # training
-    train_embeddings = False
+    train_embeddings = True
     nepochs          = 50
     dropout          = 0.5
     batch_size       = 2
@@ -98,7 +98,7 @@ class Config():
 
     # model hyperparameters
     hidden_size_char = 128 # lstm on chars
-    hidden_size_lstm = 256 # lstm on word embeddings
+    hidden_size_lstm = 512 # lstm on word embeddings
 
     # NOTE: if both chars and crf, only 1.6x slower on GPU
     use_crf = True # if crf, training is 1.7x slower on CPU
