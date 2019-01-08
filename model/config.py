@@ -68,7 +68,7 @@ class Config():
     filename_glove = "data/glove.6B/glove.6B.{}d.txt".format(dim_word)
     # trimmed embeddings (created from glove_filename with build_data.py)
     filename_trimmed = "data/glove.6B.{}d.trimmed.npz".format(dim_word)
-    use_pretrained = True
+    use_pretrained = False
 
     # dataset
     filename_dev = "data/coNLL/eng/eng.testa.iob"
@@ -86,19 +86,19 @@ class Config():
     filename_results = "data/results.txt"
 
     # training
-    train_embeddings = True
+    train_embeddings = False
     nepochs          = 50
-    dropout          = 0.5
+    dropout          = 1.0
     batch_size       = 2
     lr_method        = "adam"
-    lr               = 0.03
+    lr               = 0.01
     lr_decay         = 0.9
     clip             = -1 # if negative, no clipping
     nepoch_no_imprv  = 3
 
     # model hyperparameters
     hidden_size_char = 100 # lstm on chars
-    hidden_size_lstm = 300 # lstm on word embeddings
+    hidden_size_lstm = 100 # lstm on word embeddings
 
     # NOTE: if both chars and crf, only 1.6x slower on GPU
     use_crf = True # if crf, training is 1.7x slower on CPU
