@@ -86,7 +86,7 @@ class Config():
     filename_results = "data/results.txt"
 
     # training
-    train_embeddings = False
+    train_embeddings = True
     nepochs          = 50
     dropout          = 0.5
     batch_size       = 2
